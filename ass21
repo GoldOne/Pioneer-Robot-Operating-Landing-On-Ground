@@ -1,0 +1,78 @@
+f(a).
+f(b).
+f(c).
+f(d).
+r([a, b, c, d], e).
+r([e], f).
+r([f], g).
+r([], h).
+
+p([addbelief, g1], [a], [[action, a1]]).
+p([deletegoal, g2], [a, i], [[action, a3]]).
+p([deletegoal, g2], [h, d], [[goal, g3], [action, a2], [goal, g4]]). 
+p([addgoal, g3], [g], [[goal, g5], [action, a4]]).
+p([addgoal, g4], [], [[action, a5]]).
+p([addgoal, g5], [], [[action, a6]]).
+p([addgoal, g6], [], [[action, a7], [action, a8]]).
+
+append([],T,T).
+append(T,[],T).
+append([X|H],T,[X|R]):-
+append(H,T,R).
+flatten([],[]).    %ass1 question1
+flatten(X,[X]):- 
+\+ is_list(X).
+flatten([H|T],R):- 
+flatten(H,S), 
+flatten(T,E), 
+append(S,E,R).
+
+delete(X,[],[]).  %delete a specific element in a list
+delete(X,[X|T],R):- 
+delete(X,T,R).
+delete(X,[H|T],[H|R]):- 
+not(X=H), 
+delete(X,T,R).
+
+q(X):-
+r([_|_],X).
+q(X):-
+r([],X).
+
+explain(A,E):-
+q(A),
+write(true),
+nl,
+r(E,A).
+explain(A,E):-
+\+ q(A),
+write(false),
+nl,
+r(E,X).
+
+agent([_|T],ActionList):-
+p([_|T],[A|_],[S|E]),
+f(A),
+S\=goal,
+flatten([S|E],R1),
+delete(action,R1,ActionList).
+
+agent([_|T],ActionList):-
+p([_|T],[_|A],[S|E]),
+f([_|A]),
+S=goal,
+flatten([S|E],R1),
+agent([S|E],R2),
+append(R1,R2,R3),
+delete(action,R3,ActionList).
+
+agent([_|T],ActionList):-
+p([_|T],[_|A],[S|E]),
+f(A),
+flatten([S|E],R1),
+delete(action,R1,ActionList).
+
+agent([_|T],ActionList):-
+p([_|T],[],[S|E]),
+flatten([S|E],R1),
+delete(action,R1,ActionList).
