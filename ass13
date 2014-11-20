@@ -1,0 +1,42 @@
+count(X,[],0).
+count(X,[X|T],N):-
+count(X,T,N1),
+N is N1+1.
+count(X,[Y|T],N):-
+X\=Y,
+count(X,T,N).
+found(0,[],X).
+found(N,[H|T],R):-
+count(R,[R|T],C),
+C==N.
+found(N,[H|T],R):-
+count(R,[R|T],C),
+C\=N,
+found(N,T,R).
+delete(X,[],[]).
+delete(X,[X|T],R):- 
+delete(X,T,R).
+delete(X,[H|T],[H|R]):- 
+not(X=H), 
+delete(X,T,R).
+position(X,[X|_],1).
+position(X,[H|T],P):-
+X\=H,
+position(X,T,P1),
+P is P1+1.
+position(X,H,P):-
+X==H.
+remove(X,[X|T],1,T).
+remove(X,[H|T],P,[H|R]):- 
+P>1, 
+P1 is P-1, 
+remove(X,T,P1,R).
+insert(X,List,P,R):- 
+remove(X,R,P,List).
+no-repetition(0,[],[]).
+no-repetition(N,[H|T],R):-
+N>1,
+found(N,[H|T],X),
+position(X,[H|T],P),
+delete(X,[H|T],R1),
+insert(X,R1,P,R).
