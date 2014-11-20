@@ -1,0 +1,11 @@
+append([],T,T).
+append(T,[],T).
+append([X|H],T,[X|R]):-
+append(H,T,R).
+flatten([],[]).
+flatten(X,[X]):- 
+\+ is_list(X).
+flatten([H|T],R):- 
+flatten(H,S), 
+flatten(T,E), 
+append(S,E,R).
