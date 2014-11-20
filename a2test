@@ -1,0 +1,21 @@
+f(a).
+f(b).
+f(c).
+f(d).
+r([a, b, c, d], e).
+r([e], f).
+r([f], g).
+r([], h).
+
+p([addbelief, g1], [a], [[action, a1]]).
+p([deletegoal, g2], [a, i], [[action, a3]]).
+p([deletegoal, g2], [h, d], [[goal, g3], [action, a2], [goal, g4]]). 
+p([addgoal, g3], [g], [[goal, g5], [action, a4]]).
+p([addgoal, g4], [], [[action, a5]]).
+p([addgoal, g5], [], [[action, a6]]).
+p([addgoal, g6], [], [[action, a7], [action, a8]]).
+
+/* Initial event queue consists of the following 2 external events in this order:
+- [addgoal, g6]
+- [deletegoal, g2]
+*/
