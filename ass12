@@ -1,0 +1,8 @@
+find(X,[X|R]).
+find(X,[Y|R]):-
+find(X,R).
+intersects([],[]).
+intersects([H|T],[S|E]):-
+find(H,[S|E]).
+intersects([H|T],[S|E]):-
+intersects(T,[S|E]).
