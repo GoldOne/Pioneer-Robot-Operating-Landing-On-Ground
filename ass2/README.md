@@ -6,6 +6,8 @@ You are required to implement in Prolog the following two systems:
    + A simple interpreter for the agent programming language AgentSpeak. The interpreter will rely on the           expert system shell for querying the beliefs of an agent.
  
 Both of the above will rely on a restricted propositional language. The expert system knowledge-base will consist of facts and rules. Facts will be represented via a unary predicate `f(Fact)` where `Fact` is necessarily an atomic proposition. Rules will be represented by a binary predicate `r(Antecedent, Consequent)` where `Antecedent` is a list of atomic propositional facts while `Consequent` is a single atomic propositional fact. Thus the knowledge base below: 
+
+
 a
 
 
@@ -36,7 +38,7 @@ is encoded as follows:
    + `explain(Proposition, Explainlist)` which returns a list of facts and rules used in deriving                 `Proposition` (contained in `Explainlist`) in the event that `q(Proposition)` returns true. If                `q(Proposition)` returns false, so does explain`(Proposition,Explainlist)`.
 
 
-An AgentSpeak agent's beliefs will be represented in a knowledge-based as described above. Its plans will be represented using a ternary predicate `p(Trigger, Context, Body).` Context is a list consisting of either atomic propositions or elements of the form `[not p]` where `p` is an atomic proposition. We will treat `not p` to be true if `q(p)` turns out to be false. `Trigger` is one of the following:
+An AgentSpeak agent's beliefs will be represented in a knowledge-based as described above. Its plans will be represented using a ternary predicate `p(Trigger, Context, Body)`. Context is a list consisting of either atomic propositions or elements of the form `[not p]` where `p` is an atomic proposition. We will treat `not p` to be true if `q(p)` turns out to be false. `Trigger` is one of the following:
 
 
     + `[addbelief, Proposition]`
