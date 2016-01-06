@@ -43,12 +43,9 @@ An AgentSpeak agent's beliefs will be represented in a knowledge-based as descri
 
      [addbelief, Proposition]
     
-    
      [deletebelief, Proposition]
     
-    
      [addgoal, Proposition]
-    
     
      [deletegoal, Proposition]
     
@@ -60,7 +57,6 @@ Body is a list consisting of the following two kinds of elements:
 
 
     [goal, Proposition]
-    
     
     [action, Proposition]
     
