@@ -6,13 +6,13 @@ You are required to implement in Prolog the following two systems:
    + A simple interpreter for the agent programming language AgentSpeak. The interpreter will rely on the           expert system shell for querying the beliefs of an agent.
  
 Both of the above will rely on a restricted propositional language. The expert system knowledge-base will consist of facts and rules. Facts will be represented via a unary predicate `f(Fact)` where `Fact` is necessarily an atomic proposition. Rules will be represented by a binary predicate `r(Antecedent, Consequent)` where `Antecedent` is a list of atomic propositional facts while `Consequent` is a single atomic propositional fact. Thus the knowledge base below: 
-`a`
+a
 
 
-`b`
+b
 
 
-`a AND b IMPLIES c`
+a AND b IMPLIES c
 
 
 is encoded as follows: 
@@ -66,7 +66,7 @@ Body is a list consisting of the following two kinds of elements:
 (Once again, Proposition is an atomic proposition).    
 
 
-An agent is invoked via binary predicate agent`(EventQueue, ActionList)` where `EventQueue` is a list of `Triggers,` and `ActionList` is a list of actions represented as atomic propositions. When an agent is invoked, `EventQueue` is instantiated, while `ActionList` is `uninstatiated`. The query is evaluated with respect to an agent program represented as above (this may be loaded as a separate file), and the output (implicitly) is the sequence of actions that the variable `ActionList` is instantiated with. 
+An agent is invoked via binary predicate agent`(EventQueue, ActionList)` where `EventQueue` is a list of `Triggers`, and `ActionList` is a list of actions represented as atomic propositions. When an agent is invoked, `EventQueue` is instantiated, while `ActionList` is `uninstatiated`. The query is evaluated with respect to an agent program represented as above (this may be loaded as a separate file), and the output (implicitly) is the sequence of actions that the variable `ActionList` is instantiated with. 
 
 
 Notice that AgentSpeak has been further simplified by doing away with test goals (the only goals considered are achievement goals).
