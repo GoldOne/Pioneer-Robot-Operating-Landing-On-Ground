@@ -8,22 +8,22 @@ Some simple PROLOG programming exercises, mostly involving recursion and list op
 Hence,
 
 
-`|?- flatten( [a, b, [c,d], [[e]]], Y). `
-`Y = [ a, b, c, d, e]. `
-`no`
+  `|?- flatten( [a, b, [c,d], [[e]]], Y). `
+  `Y = [ a, b, c, d, e]. `
+  `no`
 
 
-`|?- flatten( [a,[b],[[[c]]], [d,e]], X). `
-`X = [a,b,c,d,e]. `
-`no`
+  `|?- flatten( [a,[b],[[[c]]], [d,e]], X). `
+  `X = [a,b,c,d,e]. `
+  `no`
 
-You may use the code 
-
-
-`non_nil_atom(X) :- X \== [ ], atomic(X). `
+  You may use the code 
 
 
-to test if a component is an atom that is not [ ]. The flatten predicate must also replace any single digit number in the alphabet (you may assume that these would be the only numbers that would appear in the input list) with the letter in the corresponding position in the input list (i.e., 1 with a, 2 with b and so on).
+  `non_nil_atom(X) :- X \== [ ], atomic(X). `
+
+
+  to test if a component is an atom that is not [ ]. The flatten predicate must also replace any single digit    number in the alphabet (you may assume that these would be the only numbers that would appear in the input     list) with the letter in the corresponding position in the input list (i.e., 1 with a, 2 with b and so on).
 
 
 - Write a Prolog program that defines a predicate `intersects(List1, List2)` which evaluates to true if List1 and List2 have at least one element in common. The elements of these lists may themselves be lists.
