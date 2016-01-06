@@ -26,7 +26,7 @@ is encoded as follows:
 `f(b).`
 
 
-`r([a, b], c). `
+`r([a, b], c)`.
 
 
 (Since this is propositional Horn clause reasoning, ask yourself why we cannot encode knowledge bases directly in Prolog). Ensure that your system satisfies the property of **refraction** (a rule does not fire more than once for the same set of facts). Assume that the shell supports two kinds of queries:
@@ -41,16 +41,16 @@ is encoded as follows:
 An AgentSpeak agent's beliefs will be represented in a knowledge-based as described above. Its plans will be represented using a ternary predicate `p(Trigger, Context, Body)`. Context is a list consisting of either atomic propositions or elements of the form `[not p]` where `p` is an atomic proposition. We will treat `not p` to be true if `q(p)` turns out to be false. `Trigger` is one of the following:
 
 
-     `[addbelief, Proposition]`
+     [addbelief, Proposition]
     
     
-     `[deletebelief, Proposition]`
+     [deletebelief, Proposition]
     
     
-     `[addgoal, Proposition]`
+     [addgoal, Proposition]
     
     
-     `[deletegoal, Proposition].`
+     [deletegoal, Proposition]
     
     
 (Proposition is an atomic proposition).    
@@ -59,10 +59,10 @@ An AgentSpeak agent's beliefs will be represented in a knowledge-based as descri
 Body is a list consisting of the following two kinds of elements:
 
 
-    `[goal, Proposition]`
+    [goal, Proposition]
     
     
-    `[action, Proposition]`
+    [action, Proposition]
     
     
 (Once again, Proposition is an atomic proposition).    
